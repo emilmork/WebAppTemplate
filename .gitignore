@@ -1,0 +1,5 @@
+node_modules
+public/style/*.less
+public/scripts/main.js
+.bundle.js
+.DS_Store

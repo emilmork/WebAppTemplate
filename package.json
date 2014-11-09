@@ -1,0 +1,39 @@
+{
+  "name": "webAppTemplate",
+  "version": "0.0.1",
+  "description": "Simple web App template",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "npm run watch-less & npm run watch-js",
+    "build": "npm run build-less && npm run build-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/emilmork/webAppTemplate.git"
+  },
+  "keywords": [
+    "Web",
+    "App",
+    "template"
+  ],
+  "author": "Emil Mork",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emilmork/webAppTemplate/issues"
+  },
+  "homepage": "https://github.com/emilmork/webAppTemplate",
+  "dependencies": {
+    "st": "~0.5.2"
+  },
+  "devDependencies": {
+    "gulp": "~3.8.10",
+    "watchify": "~2.1.1",
+    "browserify": "~6.2.0",
+    "gulp-notify": "~2.0.1",
+    "gulp-less": "~1.3.6",
+    "vinyl-source-stream": "~1.0.0",
+    "reactify": "~0.15.2"
+  }
+}
