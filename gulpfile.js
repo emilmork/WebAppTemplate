@@ -5,7 +5,7 @@ var reactify = require('reactify');
 var watchify = require('watchify');
 var notify = require('gulp-notify');
 var path = require('path');
-var less = require('gulp-less');
+var myth = require('gulp-myth');
 
 var baseDir = './app';
 var scriptsDir = baseDir + '/scripts';
@@ -23,6 +23,9 @@ function buildScript(file, watch) {
   bundler.transform(reactify, {
     harmony: true
   });
+
+
+/** ------- // JS Bundle helper ----------- **/
 
   function rebundle() {
     var stream = bundler.bundle();
@@ -42,6 +45,9 @@ function buildScript(file, watch) {
   return rebundle();
 }
 
+
+/** ------- // JS ----------- **/
+
 gulp.task('js', function() {
   return buildScript('main.js', false);
 });
@@ -50,30 +56,20 @@ gulp.task('watch-js', ['js'], function() {
   return buildScript('main.js', true);
 });
 
-/** ------- // Javascript ----------- **/
+/** ------- // CSS ----------- **/
 
-/** ------- LESS ----------- **/
-
-gulp.task('less', function () {
-  return gulp.src(baseDir + '/style/main.less')
-    .pipe(less({
-      paths: [ path.join(__dirname, 'style') ]
-    }))
+gulp.task('css', function() {
+  return gulp.src(baseDir + '/style/main.css')
+    .pipe(myth())
     .pipe(gulp.dest('./public/style'))
-    .pipe(notify('Build Less'));
+    .pipe(notify("Build css"));
 });
 
-gulp.task('watch-less', function () {
-  return gulp.watch(baseDir + '/style/**/*.less', ['less']);
+gulp.task('watch-css', function() {
+    return gulp.watch(baseDir + '/style/**/*.css', ['css']);
 });
 
-/** ------- // LESS ----------- **/
 
+gulp.task('watch', ['watch-js', 'watch-css']);
 
-/** ------- Convenience ----------- **/
-
-gulp.task('watch', ['watch-js', 'watch-less']);
-
-gulp.task('default', ['less', 'js']);
-
-/** ------- // Convenience ----------- **/
+gulp.task('default', ['css', 'js']);
