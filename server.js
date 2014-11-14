@@ -15,6 +15,6 @@ http.createServer(function(req, res) {
   else
     res.writeHead(404);
     res.end();
-}).listen(8080)
+}).listen(7000)
 
-console.log("Server listening on port 8080");
+console.log("Server listening on port 7000");
