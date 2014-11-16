@@ -4,7 +4,7 @@
   "description": "Simple web App template",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "node server.js",
     "watch": "npm run watch-less & npm run watch-js",
     "build": "npm run build-less && npm run build-js"
@@ -35,6 +35,7 @@
     "vinyl-source-stream": "~1.0.0",
     "reactify": "~0.15.2",
     "myth": "~1.2.1",
-    "gulp-myth": "~1.0.1"
+    "gulp-myth": "~1.0.1",
+    "mocha": "~2.0.1"
   }
 }
